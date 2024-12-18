@@ -1,0 +1,45 @@
+.MyAppNav {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.active {
+  text-decoration: underline;
+}
+
+/* Style for the navigation container */
+.MyAppNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #282c34;
+  padding: 10px 0;
+}
+
+/* Style for each NavLink */
+.MyAppNav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin: 0 15px;
+  transition: color 0.3s ease;
+}
+
+/* Style for active link */
+.MyAppNav a.active {
+  font-weight: bold;
+  color: #61dafb; /* React blue */
+}
+
+/* Hover effect for links */
+.MyAppNav a:hover {
+  color: #61dafb;
+}
+
+/* Adding some padding and margin for better spacing */
+.MyAppNav a:last-child {
+  margin-right: 0;
+}

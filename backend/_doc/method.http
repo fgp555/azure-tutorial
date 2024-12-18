@@ -1,0 +1,22 @@
+### Create a new Todo
+POST http://localhost:3000/api/todos
+Content-Type: application/json
+
+{
+  "title": "Learn MERN stack"
+}
+
+### Get all Todos
+GET http://localhost:3000/api/todos
+
+### Update a Todo
+PUT http://localhost:3000/api/todos/6760886e245e1cfc37fb015a
+Content-Type: application/json
+
+{
+  "title": "Learn MERN stack (updated)",
+  "completed": true
+}
+
+### Delete a Todo
+DELETE http://localhost:3000/api/todos/6760886e245e1cfc37fb015a

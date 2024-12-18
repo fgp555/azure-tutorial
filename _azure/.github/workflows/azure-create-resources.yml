@@ -1,0 +1,26 @@
+name: Azure Create Resources
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login to Azure
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Create Azure Resources
+        run: |
+          az group create --name ${{ vars.AZ_RG }} --location ${{ vars.AZ_LOCATION }}
+
+          az appservice plan create --name ${{ vars.AZ_PLAN }} --resource-group ${{ vars.AZ_RG }} --sku B1 --is-linux
+
+          az webapp create --resource-group ${{ vars.AZ_RG }} --plan ${{ vars.AZ_PLAN }} --name ${{ vars.AZ_APP }} --runtime "NODE|20-lts" --startup-file "npm start"
+
+      - name: Set MongoDB URI in Azure Web App
+        run: |
+          az webapp config appsettings set --resource-group ${{ vars.AZ_RG }} --name ${{ vars.AZ_APP }} --settings MONGODB_URI=${{ secrets.MONGODB_URI }}

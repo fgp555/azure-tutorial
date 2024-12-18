@@ -1,0 +1,19 @@
+.todo-form {
+  display: flex;
+  margin-bottom: 3em;
+  gap: 1em;
+}
+
+.todo-list {
+  display: flex;
+  gap: 0.5em;
+  flex-direction: column;
+  .todo-item {
+    display: flex;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #fff4;
+    padding-bottom: 0.5em;
+  }
+}
