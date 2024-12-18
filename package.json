@@ -1,6 +1,6 @@
 {
   "scripts": {
     "start": "node backend/server.js",
-    "install": "cd frontend && npm install && cd .. && cd backend && npm install"
+    "install": "cd frontend && npm install && npm run build && cd .. && cd backend && npm install"
   }
 }
